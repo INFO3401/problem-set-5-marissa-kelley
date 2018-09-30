@@ -1,7 +1,7 @@
 ################################################################################
 # PART #1
 ################################################################################
-#Worked with Jacob Paul, Hannah Weber, Taylor Lawrence, Amy Zhai
+#I worked with Jacob Paul, Hannah Weber, Taylor Lawrence, Amy Zhai, Steven Rothaus 
 
 def countWordsUnstructured(filename):
     wordcount = {}
