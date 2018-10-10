@@ -1,3 +1,7 @@
+import string
+import csv
+from os import listdir #os is a library that allows you to access all the things from the command line into python? 
+
 ################################################################################
 # PART #1
 ################################################################################
@@ -48,33 +52,23 @@ import string
 ################################################################################
 #I worked with Hannah Weber, Taylor Lawrence
 
-#import csv
-import csv
-
-def generateSimpleCSV(targetfile, wordCounts):  
-    wordCounts = []
+# Import the csv (at the top) 
+def generateSimpleCSV(targetfile, wordCounts):
+    #wordCounts = []
     #open the csv 
     with open (targetfile, 'w') as csv_file:
-        #write to the csv using commas as a seperator 
+        #Print the headers and write to the csv using commas as a seperator 
         writer = csv.writer(csv_file)
-    #make a header noting Word, Count
-    writer.writerow(['Word', 'Count'])
-    
-    #make word count dictionary to a csv
-    for key, value in wordCounts.items():
-        writer.writerow([key,value[0]]) #SOMETHING IS FUNKY 
-   
+        writer.writerow(['Word', 'Count'])
+        #Iterate through the word counts and add to the csv
+        for key,value in wordCounts.items():
+            writer.writerow([key,value])
+    #Close the file
+    csv_file.close()
+    #Return pointer to the file 
+    return csv_file
 
- #txt_file = r"state-of-the-union-corpus-1989-2017/Bush_1989.txt"
     
-   #in_txt = csv.reader(open(txt_file, "rb"), delimerter = '\t')
-    #out_csv = csv.writer(open(csv_file, 'wb'))
-    
-    #out_csv.writewrows(in_txt)
-    #Create a header for the CSV 
-    
-generateSimpleCSV('PleaseWork', countWordsUnstructured('state-of-the-union-corpus-1989-2017/Bush_1989.txt'))
-
     # This function should transform a dictionary containing word counts to a
     # CSV file. The first row of the CSV should be a header noting: 
     # Word, Count
@@ -82,17 +76,38 @@ generateSimpleCSV('PleaseWork', countWordsUnstructured('state-of-the-union-corpu
     # Outputs: A new CSV file named targetfile containing the wordcount data
     
 # Test your part 2 code below
-    
+generateSimpleCSV('PleaseWork', countWordsUnstructured('state-of-the-union-corpus-1989-2017/Bush_1989.txt'))
+
 ################################################################################
 # PART 3
 ################################################################################
 #def countWordsMany(directory): 
-    # This function should create a dictionary of word count dictionaries
+   
+    # This function should create a dictionary of word count dictionaries (key value pairs,
+    #key is the reference- so the word is the key, value is the actual count) 
+
     # The dictionary should have one dictionary per file in the directory
     # Each entry in the dictionary should be a word count dictionary
     # Inputs: A directory containing a set of text files
     # Outputs: A dictionary containing a word count dictionary for each
     #          text file in the directory
+    
+    # Key: the file 
+    # Value: the counts 
+    # Create a list of all the file names in the directory/open the directory and pull a list of file names
+    
+    # Create a blank dictionary to hold all of our data 
+    #wordCounts = []
+    
+    # Populate the dictionary 
+    # You already have the list of filenames, so to get the filename, you need to use a for loop structure
+    # Loop through the list of files
+        #For each file, call countWordsUnstructured to get the word counts for that file
+        
+        # Place the word count dictionary into the empty dictionary 
+        
+    # Output the dictionary - return the dictionary 
+    
     
 # Test your part 3 code below
 
@@ -106,6 +121,8 @@ generateSimpleCSV('PleaseWork', countWordsUnstructured('state-of-the-union-corpu
     # Inputs: A word count dictionary and a name for the target file
     # Outputs: A CSV file named targetfile containing the word count data
     
+#create a placeholder dictionary
+#wordsCountsMany = {}
 # Test your part 4 code below
     
 ################################################################################
